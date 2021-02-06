@@ -5,8 +5,7 @@ from unittest import TestCase
 
 
 def add_two(a, b):
-    # return a + b
-    return 0
+    return a + b
 
 
 class TestSum(TestCase):
