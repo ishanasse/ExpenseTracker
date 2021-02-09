@@ -5,6 +5,8 @@ from restapi import models, serializers
 from django.forms.models import model_to_dict
 from rest_framework.generics import RetrieveDestroyAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_api_key.permissions import HasAPIKey
+
 
 # Create your views here.
 # class ExpenseListCreate(APIView):
@@ -45,4 +47,9 @@ class ExpenseListCreate(ListCreateAPIView):
     serializer_class = serializers.Expense
     queryset = models.Expense.objects.all()
     filterset_fields = ["category", "merchant"]
-    permission_classes = [IsAuthenticated]
+
+    # User auth
+    # permission_classes = [IsAuthenticated]
+
+    # API based auth
+    permission_classes = [HasAPIKey]
